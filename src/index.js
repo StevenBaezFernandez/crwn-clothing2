@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { UserProvider } from './contexts/user.context';
 import { ShopProvider } from './contexts/shop.context';
-import { ToggleCartDropdownProvider } from './contexts/toggle-cart-dropdown.context';
+import { CartProvider } from './contexts/cart.context';
 import './index.scss';
 
 ReactDOM.render(
@@ -13,9 +13,9 @@ ReactDOM.render(
     <BrowserRouter>
       <UserProvider>
         <ShopProvider>
-        <ToggleCartDropdownProvider>
+        <CartProvider>
           <App/>        
-        </ToggleCartDropdownProvider>
+        </CartProvider>
         </ShopProvider>
       </UserProvider>
     </BrowserRouter>

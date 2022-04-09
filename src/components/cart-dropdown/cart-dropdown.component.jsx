@@ -1,19 +1,23 @@
 import { useContext } from 'react';
-import { toggleCartDropdownContext } from '../../contexts/toggle-cart-dropdown.context';
+import { CartContext } from '../../contexts/cart.context';
+
+import CartItem from '../cart-item/cart-item.component';
 
 import './cart-dropdown.style.scss';
+
 import Button from '../button/button.component';
 
 
 
 const CartDropdowm = () => {
 
-    const { showCartDropdown } = useContext(toggleCartDropdownContext);
+    const { isCartOpen, cartItems } = useContext(CartContext);
     return (
-        <div className={`${showCartDropdown ? 'active' : ''} cart-dropdown-container`}>
+        <div className={`${isCartOpen ? 'active' : ''} cart-dropdown-container`}>
             <div className='cart-items'>
-                <Button>GO TO CHECKOUT</Button>
+                {cartItems.map(item => <CartItem key={item.id} cartItem={item}/>)}
             </div>
+            <Button>GO TO CHECKOUT</Button>
         </div>
     );
 };
